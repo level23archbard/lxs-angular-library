@@ -1,5 +1,5 @@
 import { Inject, Injectable, Optional } from '@angular/core';
-import { WindowService } from 'lxs-window/projects/window-service/src/public-api';
+import { WindowService } from '@level23archbard/window-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -14,11 +14,13 @@ export interface StorageKey<T> {
 export class StorageService {
 
   private keys: Record<string, ConcreteStorageKey> = {};
+  private localStorage: Storage | null;
 
   constructor(
     private window: WindowService,
-    @Inject('LXS_LOCAL_STORAGE') @Optional() private localStorage: Storage | null
+    @Inject('LXS_LOCAL_STORAGE') @Optional() localStorage: any
   ) {
+    this.localStorage = localStorage;
     if (this.window.window) {
       this.window.window.addEventListener('storage', (event) => {
         if (event.key) {

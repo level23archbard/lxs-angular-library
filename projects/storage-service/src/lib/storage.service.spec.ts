@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { WindowService } from 'lxs-window/projects/window-service/src/public-api';
+import { WindowService } from '@level23archbard/window-service';
 
 import { StorageService } from './storage.service';
 

@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
-import { WindowModule } from 'lxs-window/projects/window-service/src/public-api';
+import { WindowModule } from '@level23archbard/window-service';
+
+export function storageModuleFactory() {
+  return localStorage;
+}
 
 @NgModule({
   imports: [
     WindowModule,
   ],
   providers: [
-    { provide: 'LXS_LOCAL_STORAGE', useFactory: () => localStorage },
+    { provide: 'LXS_LOCAL_STORAGE', useFactory: storageModuleFactory },
   ],
 })
 export class StorageModule { }

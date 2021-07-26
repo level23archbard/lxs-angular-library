@@ -4,7 +4,10 @@ import { Inject, Injectable, Optional } from '@angular/core';
   providedIn: 'root'
 })
 export class WindowService {
-  constructor(@Inject('LXS_WINDOW') @Optional() private _window: Window | null) {}
+  private _window: Window | null;
+  constructor(@Inject('LXS_WINDOW') @Optional() _window: any) {
+    this._window = _window;
+  }
 
   get window(): Window | null {
     return this._window;
