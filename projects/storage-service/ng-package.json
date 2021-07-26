@@ -3,5 +3,6 @@
   "dest": "../../dist/storage-service",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@level23archbard/*"]
 }
