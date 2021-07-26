@@ -1,24 +1,12 @@
-# StorageService
+# storage-service
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+This library contains a service named `StorageService`, which can be injected to provide a reactive, key-object-based accessor to `localStorage`, via storage keys. Storage keys will carefully watch the stored value and will provide subscription-based updates whenever the value changes, even across separate application instances.
 
-## Code scaffolding
+It requires the `StorageModule` is imported in order to use.
 
-Run `ng generate component component-name --project storage-service` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project storage-service`.
-> Note: Don't forget to add `--project storage-service` or else it will be added to the default project in your `angular.json` file. 
+## Module Configuration
 
-## Build
+Add the following import to your module:
+`import { StorageModule } from '@level23archbard/storage-service';`
 
-Run `ng build storage-service` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build storage-service`, go to the dist folder `cd dist/storage-service` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test storage-service` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+And add the `StorageModule` item to the NgModule.imports array.
