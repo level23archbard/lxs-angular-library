@@ -19,7 +19,17 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "storage-service": [
+        "dist/storage-service/storage-service",
+        "dist/storage-service"
+      ],
+      "window-service": [
+        "dist/window-service/window-service",
+        "dist/window-service"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

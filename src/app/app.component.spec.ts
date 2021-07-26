@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lxs-angular-library'`, () => {
+  it(`should have as title 'lxs-window'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('lxs-angular-library');
+    expect(app.title).toEqual('lxs-window');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('lxs-angular-library app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('lxs-window app is running!');
   });
 });
