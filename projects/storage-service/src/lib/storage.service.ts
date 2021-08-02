@@ -5,7 +5,9 @@ import { map } from 'rxjs/operators';
 
 export interface StorageKey<T> {
   get(): Observable<T | null>;
+  getWithDefault(def: T): Observable<T>;
   set(value: T | null): void;
+  update(updater: (current: T | null) => T | null): void;
 }
 
 @Injectable({
@@ -71,6 +73,10 @@ class ConcreteStorageKey implements StorageKey<any> {
     return this.storageSubject.pipe(map((raw) => this.fromRaw(raw)));
   }
 
+  getWithDefault(def: any): Observable<any> {
+    return this.get().pipe(map((value) => value !== null ? value : def));
+  }
+
   set(value: any | null): void {
     const rawValue = this.toRaw(value);
     if (this.storage) {
@@ -81,6 +87,10 @@ class ConcreteStorageKey implements StorageKey<any> {
       }
     }
     this.storageSubject.next(rawValue);
+  }
+
+  update(updater: (current: any | null) => any | null): void {
+    this.set(updater(this.fromRaw(this.storageSubject.getValue())));
   }
 
   toRaw(value: any): string | null {
