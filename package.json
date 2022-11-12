@@ -1,6 +1,6 @@
 {
   "name": "lxs-angular-library",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,6 +19,8 @@
     "@angular/platform-browser": "^14.2.10",
     "@angular/platform-browser-dynamic": "^14.2.10",
     "@angular/router": "^14.2.10",
+    "@level23archbard/storage-service": "0.0.6",
+    "@level23archbard/window-service": "0.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

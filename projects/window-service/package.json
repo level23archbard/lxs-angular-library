@@ -1,13 +1,13 @@
 {
   "name": "@level23archbard/window-service",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/level23archbard/lxs-angular-library.git"
   },
   "peerDependencies": {
-    "@angular/common": "^11.2.14",
-    "@angular/core": "^11.2.14"
+    "@angular/common": "^14.2.10",
+    "@angular/core": "^14.2.10"
   },
   "dependencies": {
     "tslib": "^2.0.0"
