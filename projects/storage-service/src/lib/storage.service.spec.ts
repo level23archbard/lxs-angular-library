@@ -86,6 +86,28 @@ describe('StorageService', () => {
     mockWindowService.window.callback({});
     expect(testValue).toBe('testing');
   });
+
+  it('should support current getters', () => {
+    // Initial slate value should be null
+    const testKey = service.stringKey('test');
+    let testValue = testKey.getCurrent();
+    expect(testValue).toBeNull();
+    // Default value should display
+    testValue = testKey.getCurrentWithDefault('default');
+    expect(testValue).toBe('default');
+    // Value should set and be readable
+    testKey.set('value');
+    testValue = testKey.getCurrent();
+    expect(testValue).toBe('value');
+    testValue = testKey.getCurrentWithDefault('default');
+    expect(testValue).toBe('value');
+    // Value should clear and be readable
+    testKey.set(null);
+    testValue = testKey.getCurrent();
+    expect(testValue).toBeNull();
+    testValue = testKey.getCurrentWithDefault('default');
+    expect(testValue).toBe('default');
+  });
 });
 
 describe('StorageService without localStorage', () => {

@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 export interface StorageKey<T> {
   get(): Observable<T | null>;
   getWithDefault(def: T): Observable<T>;
+  getCurrent(): T | null;
+  getCurrentWithDefault(def: T): T;
   set(value: T | null): void;
   update(updater: (current: T | null) => T | null): void;
 }
@@ -75,6 +77,15 @@ class ConcreteStorageKey implements StorageKey<any> {
 
   getWithDefault(def: any): Observable<any> {
     return this.get().pipe(map((value) => value !== null ? value : def));
+  }
+
+  getCurrent(): any | null {
+    return this.fromRaw(this.storageSubject.getValue());
+  }
+
+  getCurrentWithDefault(def: any): any {
+    const value = this.getCurrent();
+    return value !== null ? value : def;
   }
 
   set(value: any | null): void {
